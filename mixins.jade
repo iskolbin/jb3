@@ -2,6 +2,23 @@ mixin glyphicon(name)
   span(class="glyphicon glyphicon-" + name,aria-hidden="true")
     block
 
+mixin alert(type)
+  div(class=["alert","alert-"+type],role="alert")
+    block
+
+mixin breadcrumb()
+  ol(class="breadcrumb")
+    block
+
+mixin breadcrumb_item(href)
+  li
+    if href === undefined
+      a(class="active")
+        block
+    else
+      a(href=href)
+        block
+
 mixin nav(name, id, style)
   - var style = (typeof style === 'undefined') ? "default" : style
     nav( role="navigation", class=["navbar", "navbar-" + style] )
